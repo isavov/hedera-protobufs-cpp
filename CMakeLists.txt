@@ -13,7 +13,10 @@ set(Protobuf_USE_STATIC_LIBS ON)
 find_package(ZLIB REQUIRED)
 find_package(OpenSSL REQUIRED)
 find_package(Protobuf REQUIRED)
-find_package(gRPC REQUIRED)
+find_package(gRPC CONFIG REQUIRED)
+find_package(re2 CONFIG REQUIRED)
+find_package(c-ares CONFIG REQUIRED)
+find_package(absl REQUIRED)
 
 set(HAPI_VERSION_TAG "v0.30.0" CACHE STRING "Use the configured version tag for the Hedera API protobufs")
 

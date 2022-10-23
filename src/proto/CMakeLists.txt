@@ -114,5 +114,45 @@ protobuf_generate(TARGET hapi LANGUAGE grpc GENERATE_EXTENSIONS .grpc.pb.h .grpc
 
 # Install Library & Headers
 install(TARGETS hapi ARCHIVE DESTINATION lib)
+
+install(FILES ${ZLIB_LIBRARY_RELEASE} DESTINATION lib)
+install(FILES ${OPENSSL_SSL_LIBRARIES} DESTINATION lib)
+install(FILES ${OPENSSL_CRYPTO_LIBRARIES} DESTINATION lib)
+install(FILES ${Protobuf_LIBRARY_RELEASE} DESTINATION lib)
+
+get_target_property(gRPC_LIBRARY gRPC::grpc LOCATION)
+install(FILES ${gRPC_LIBRARY} DESTINATION lib)
+
+get_target_property(gRPC_CPP_LIBRARY gRPC::grpc++ LOCATION)
+install(FILES ${gRPC_CPP_LIBRARY} DESTINATION lib)
+
+get_target_property(RE2_LIBRARY re2::re2 LOCATION)
+install(FILES ${RE2_LIBRARY} DESTINATION lib)
+
+get_target_property(CARES_LIBRARY c-ares::cares LOCATION)
+install(FILES ${CARES_LIBRARY} DESTINATION lib)
+
+get_target_property(UPB_LIBRARY upb::upb LOCATION)
+install(FILES ${UPB_LIBRARY} DESTINATION lib)
+
+get_target_property(ABSL_BASE_LIBRARY absl::base LOCATION)
+get_target_property(ABSL_STRINGS_LIBRARY absl::strings LOCATION)
+get_target_property(ABSL_HASH_LIBRARY absl::hash LOCATION)
+get_target_property(ABSL_TIME_LIBRARY absl::time LOCATION)
+get_target_property(ABSL_STATUS_LIBRARY absl::status LOCATION)
+get_target_property(ABSL_FLAGS_LIBRARY absl::flags LOCATION)
+get_target_property(ABSL_SYNCHRONIZATION_LIBRARY absl::synchronization LOCATION)
+install(FILES
+            ${ABSL_BASE_LIBRARY}
+            ${ABSL_ALGORITHM_LIBRARY}
+            ${ABSL_STRINGS_LIBRARY}
+            ${ABSL_HASH_LIBRARY}
+            ${ABSL_TIME_LIBRARY}
+            ${ABSL_STATUS_LIBRARY}
+            ${ABSL_FLAGS_LIBRARY}
+            ${ABSL_SYNCHRONIZATION_LIBRARY}
+        DESTINATION lib)
+
 install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR} DESTINATION include FILES_MATCHING PATTERN "*.h")
 install(DIRECTORY ${Protobuf_INCLUDE_DIRS} DESTINATION ${CMAKE_INSTALL_PREFIX})
+install(DIRECTORY ${ZLIB_INCLUDE_DIRS} DESTINATION ${CMAKE_INSTALL_PREFIX})
