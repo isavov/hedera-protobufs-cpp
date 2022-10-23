@@ -116,32 +116,32 @@ protobuf_generate(TARGET hapi LANGUAGE grpc GENERATE_EXTENSIONS .grpc.pb.h .grpc
 install(TARGETS hapi ARCHIVE DESTINATION lib)
 
 install(FILES ${ZLIB_LIBRARY_RELEASE} DESTINATION lib)
-install(FILES ${OPENSSL_SSL_LIBRARIES} DESTINATION lib)
-install(FILES ${OPENSSL_CRYPTO_LIBRARIES} DESTINATION lib)
+install(FILES ${OPENSSL_SSL_LIBRARY_RELEASE} DESTINATION lib)
+install(FILES ${OPENSSL_CRYPTO_LIBRARY_RELEASE} DESTINATION lib)
 install(FILES ${Protobuf_LIBRARY_RELEASE} DESTINATION lib)
 
-get_target_property(gRPC_LIBRARY gRPC::grpc LOCATION)
+get_target_property(gRPC_LIBRARY gRPC::grpc LOCATION_LIBRARY_OUTPUT_RELEASE)
 install(FILES ${gRPC_LIBRARY} DESTINATION lib)
 
-get_target_property(gRPC_CPP_LIBRARY gRPC::grpc++ LOCATION)
+get_target_property(gRPC_CPP_LIBRARY gRPC::grpc++ LOCATION_LIBRARY_OUTPUT_RELEASE)
 install(FILES ${gRPC_CPP_LIBRARY} DESTINATION lib)
 
-get_target_property(RE2_LIBRARY re2::re2 LOCATION)
+get_target_property(RE2_LIBRARY re2::re2 LOCATION_LIBRARY_OUTPUT_RELEASE)
 install(FILES ${RE2_LIBRARY} DESTINATION lib)
 
-get_target_property(CARES_LIBRARY c-ares::cares LOCATION)
+get_target_property(CARES_LIBRARY c-ares::cares LOCATION_LIBRARY_OUTPUT_RELEASE)
 install(FILES ${CARES_LIBRARY} DESTINATION lib)
 
-get_target_property(UPB_LIBRARY upb::upb LOCATION)
+get_target_property(UPB_LIBRARY upb::upb LOCATION_LIBRARY_OUTPUT_RELEASE)
 install(FILES ${UPB_LIBRARY} DESTINATION lib)
 
-get_target_property(ABSL_BASE_LIBRARY absl::base LOCATION)
-get_target_property(ABSL_STRINGS_LIBRARY absl::strings LOCATION)
-get_target_property(ABSL_HASH_LIBRARY absl::hash LOCATION)
-get_target_property(ABSL_TIME_LIBRARY absl::time LOCATION)
-get_target_property(ABSL_STATUS_LIBRARY absl::status LOCATION)
-get_target_property(ABSL_FLAGS_LIBRARY absl::flags LOCATION)
-get_target_property(ABSL_SYNCHRONIZATION_LIBRARY absl::synchronization LOCATION)
+get_target_property(ABSL_BASE_LIBRARY absl::base LOCATION_LIBRARY_OUTPUT_RELEASE)
+get_target_property(ABSL_STRINGS_LIBRARY absl::strings LOCATION_LIBRARY_OUTPUT_RELEASE)
+get_target_property(ABSL_HASH_LIBRARY absl::hash LOCATION_LIBRARY_OUTPUT_RELEASE)
+get_target_property(ABSL_TIME_LIBRARY absl::time LOCATION_LIBRARY_OUTPUT_RELEASE)
+get_target_property(ABSL_STATUS_LIBRARY absl::status LOCATION_LIBRARY_OUTPUT_RELEASE)
+get_target_property(ABSL_FLAGS_LIBRARY absl::flags LOCATION_LIBRARY_OUTPUT_RELEASE)
+get_target_property(ABSL_SYNCHRONIZATION_LIBRARY absl::synchronization LOCATION_LIBRARY_OUTPUT_RELEASE)
 install(FILES
             ${ABSL_BASE_LIBRARY}
             ${ABSL_ALGORITHM_LIBRARY}
