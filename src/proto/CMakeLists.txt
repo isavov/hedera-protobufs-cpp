@@ -124,7 +124,9 @@ get_target_property(GRPC_LIBRARY gRPC::grpc LOCATION_LIBRARY_OUTPUT_RELEASE)
 get_target_property(GRPC_ADDRESS_SORTING_LIBRARY gRPC::address_sorting LOCATION_LIBRARY_OUTPUT_RELEASE)
 get_target_property(GRPC_GPR_LIBRARY gRPC::gpr LOCATION_LIBRARY_OUTPUT_RELEASE)
 get_target_property(GRPC_PLUGIN_SUPPORT_LIBRARY gRPC::grpc_plugin_support LOCATION_LIBRARY_OUTPUT_RELEASE)
-get_target_property(GRPC_PP_CHANNELZ_PROTO_LIBRARY gRPC::grpcpp_channelz LOCATION_LIBRARY_OUTPUT_RELEASE)
+if (TARGET gRPC::grpcpp_channelz)
+    get_target_property(GRPC_PP_CHANNELZ_PROTO_LIBRARY gRPC::grpcpp_channelz LOCATION_LIBRARY_OUTPUT_RELEASE)
+endif()
 get_target_property(GRPC_UNSECURE_LIBRARY gRPC::grpc_unsecure LOCATION_LIBRARY_OUTPUT_RELEASE)
 install(FILES
             ${GRPC_LIBRARY}
@@ -138,7 +140,9 @@ install(FILES
 get_target_property(GRPC_CPP_LIBRARY gRPC::grpc++ LOCATION_LIBRARY_OUTPUT_RELEASE)
 get_target_property(GRPC_CPP_ALTS_LIBRARY gRPC::grpc++_alts LOCATION_LIBRARY_OUTPUT_RELEASE)
 get_target_property(GRPC_CPP_ERROR_DETAILS_LIBRARY gRPC::grpc++_error_details LOCATION_LIBRARY_OUTPUT_RELEASE)
-get_target_property(GRPC_CPP_REFLECTION_LIBRARY gRPC::grpc++_reflection LOCATION_LIBRARY_OUTPUT_RELEASE)
+if (TARGET gRPC::grpc++_reflection)
+    get_target_property(GRPC_CPP_REFLECTION_LIBRARY gRPC::grpc++_reflection LOCATION_LIBRARY_OUTPUT_RELEASE)
+endif()
 get_target_property(GRPC_CPP_UNSECURE_LIBRARY gRPC::grpc++_unsecure LOCATION_LIBRARY_OUTPUT_RELEASE)
 install(FILES
             ${GRPC_CPP_LIBRARY}
