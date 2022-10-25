@@ -16,7 +16,7 @@ find_package(Protobuf REQUIRED)
 find_package(gRPC CONFIG REQUIRED)
 find_package(re2 CONFIG REQUIRED)
 find_package(c-ares CONFIG REQUIRED)
-find_package(absl REQUIRED)
+find_package(absl CONFIG REQUIRED)
 
 set(HAPI_VERSION_TAG "v0.30.0" CACHE STRING "Use the configured version tag for the Hedera API protobufs")
 
