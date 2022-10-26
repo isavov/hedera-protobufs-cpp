@@ -102,8 +102,8 @@ set(PROTO_FILES
 # End Protobuf Definitions
 
 add_library(hapi STATIC ${PROTO_FILES})
-target_link_libraries(hapi PUBLIC ${Protobuf_LIBRARIES} gRPC::grpc gRPC::grpc++)
-target_include_directories(hapi PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
+target_link_libraries(hapi PRIVATE ${Protobuf_LIBRARIES} gRPC::grpc gRPC::grpc++)
+target_include_directories(hapi PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 
 #
 # Compile protobuf and grpc files in the hapi target to cpp
