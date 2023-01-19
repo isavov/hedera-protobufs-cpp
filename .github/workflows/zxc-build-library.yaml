@@ -17,7 +17,7 @@ permissions:
 jobs:
   hapi-version:
     name: Version Check
-    runs-on: [self-hosted, Linux, xlarge, ephemeral]
+    runs-on: ubuntu-latest
     outputs:
       tag: ${{ steps.version.outputs.tag }}
     steps:
@@ -49,11 +49,7 @@ jobs:
 
   build:
     name: Build
-    runs-on:
-      - self-hosted
-      - "${{ matrix.os }}"
-      - xlarge
-      - ephemeral
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         include:
